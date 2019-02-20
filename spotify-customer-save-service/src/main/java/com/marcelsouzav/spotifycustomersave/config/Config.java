@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotifyplayapi.config;
+package com.marcelsouzav.spotifycustomersave.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

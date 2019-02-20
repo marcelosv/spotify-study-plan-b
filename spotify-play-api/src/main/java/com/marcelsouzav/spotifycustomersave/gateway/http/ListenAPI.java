@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotifyplayapi.gateway.http;
+package com.marcelsouzav.spotifycustomersave.gateway.http;
 
 import org.springframework.core.io.InputStreamResource;
 

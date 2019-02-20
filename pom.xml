@@ -11,7 +11,7 @@
 
     <modules>
 		<module>spotify-play-api</module>
-    
+    	<module>spotify-customer-save-service</module>
     </modules>
     
     

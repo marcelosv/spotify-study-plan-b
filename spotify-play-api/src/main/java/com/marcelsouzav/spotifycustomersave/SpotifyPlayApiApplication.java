@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotifyplayapi;
+package com.marcelsouzav.spotifycustomersave;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

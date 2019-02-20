@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotifyplayapi;
+package com.marcelsouzav.spotifycustomersave;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
