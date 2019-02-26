@@ -14,6 +14,7 @@ public class CreateCustomerService {
     private CustomerRepository customerRepository;
 
     public UUID execute(Customer customer) {
+        customer.setId(UUID.randomUUID());
         customerRepository.save(customer);
         return customer.getId();
     }

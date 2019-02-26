@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotify.customer.save.json;
+package com.marcelsouzav.spotify.json;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

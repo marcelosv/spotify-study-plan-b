@@ -1,7 +1,7 @@
 package com.marcelsouzav.spotify.customer.save.config;
 
 
-import com.marcelsouzav.spotify.customer.save.json.CustomerJson;
+import com.marcelsouzav.spotify.json.CustomerJson;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -51,7 +51,7 @@ public class KafkaConfig {
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "helloworld");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, consumerGroup);
         return props;
     }
 
@@ -67,8 +67,9 @@ public class KafkaConfig {
 
     @Bean
     public ReplyingKafkaTemplate<String, CustomerJson, CustomerJson> replyKafkaTemplate(ProducerFactory<String, CustomerJson> pf, KafkaMessageListenerContainer<String, CustomerJson> container) {
-        return new ReplyingKafkaTemplate<>(pf, container);
-
+        ReplyingKafkaTemplate template = new ReplyingKafkaTemplate<>(pf, container);
+        template.setReplyTimeout(60000);
+        return template;
     }
 
     @Bean

@@ -2,11 +2,15 @@ package com.marcelsouzav.spotify.customer.save.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-public class Application {
+@EnableKafka
+@EnableAsync
+public class CustomerApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CustomerApiApplication.class, args);
 	}
 }

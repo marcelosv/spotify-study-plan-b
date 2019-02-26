@@ -1,7 +1,7 @@
 package com.marcelsouzav.spotify.customer.save.service;
 
 import com.marcelsouzav.spotify.customer.save.domain.Customer;
-import com.marcelsouzav.spotify.customer.save.json.CustomerJson;
+import com.marcelsouzav.spotify.json.CustomerJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.SendTo;
