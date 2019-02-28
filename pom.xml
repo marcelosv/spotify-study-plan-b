@@ -13,6 +13,8 @@
 		<module>spotify-play-api</module>
     	<module>spotify-customer-save-service</module>
 		<module>spotify-customer-save-api</module>
+		<module>spotify-music-save-api</module>
+		<module>spotify-music-save-service</module>
     </modules>
     
     
