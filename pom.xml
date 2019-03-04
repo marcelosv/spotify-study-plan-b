@@ -15,6 +15,7 @@
 		<module>spotify-customer-save-api</module>
 		<module>spotify-music-save-api</module>
 		<module>spotify-music-save-service</module>
+		<module>spotify-music-upload-api</module>
     </modules>
     
     
