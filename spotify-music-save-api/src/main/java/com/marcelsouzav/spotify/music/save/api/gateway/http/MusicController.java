@@ -1,7 +1,7 @@
 package com.marcelsouzav.spotify.music.save.api.gateway.http;
 
-import com.marcelsouzav.spotify.music.save.api.service.SaveMusicService;
 import com.marcelsouzav.spotify.json.MusicJson;
+import com.marcelsouzav.spotify.music.save.api.service.SaveMusicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +23,5 @@ public class MusicController {
         customerJson.setUuidCustomer(uuid);
         return saveMusicService.execute(customerJson);
     }
-
 
 }
