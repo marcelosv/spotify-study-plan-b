@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotify.customer.config;
+package com.marcelsouzav.spotify.music.config;
 
 
 import com.marcelsouzav.spotify.json.MusicJson;
@@ -26,6 +26,7 @@ import java.util.Map;
 @Configuration
 public class KafkaConfig {
 
+
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
 
@@ -38,7 +39,6 @@ public class KafkaConfig {
     @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
-        // list of host:port pairs used for establishing the initial connections to the Kakfa cluster
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
                 bootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
@@ -68,7 +68,7 @@ public class KafkaConfig {
     @Bean
     public ReplyingKafkaTemplate<String, MusicJson, MusicJson> replyKafkaTemplate(ProducerFactory<String, MusicJson> pf, KafkaMessageListenerContainer<String, MusicJson> container) {
         ReplyingKafkaTemplate template = new ReplyingKafkaTemplate<>(pf, container);
-        template.setReplyTimeout(60000);
+        template.setReplyTimeout(60000L);
         return template;
     }
 
@@ -90,4 +90,69 @@ public class KafkaConfig {
         factory.setReplyTemplate(kafkaTemplate());
         return factory;
     }
+
+/*    @Value("${kafka.bootstrap-servers}")
+    private String bootstrapServers;
+
+    @Value("${kafka.topic.requestreply-topic}")
+    private String requestReplyTopic;
+
+    @Value("${kafka.consumergroup}")
+    private String consumerGroup;
+
+
+    @Bean
+    public Map<String, Object> producerConfigs() {
+        Map<String, Object> props = new HashMap<>();
+        // list of host:port pairs used for establishing the initial connections to the Kakfa cluster
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
+                bootstrapServers);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+                StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        return props;
+    }
+
+    @Bean
+    public Map<String, Object> consumerConfigs() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, consumerGroup);
+        return props;
+    }
+
+    @Bean
+    public ProducerFactory<String, CustomerJson> producerFactory() {
+        return new DefaultKafkaProducerFactory<>(producerConfigs());
+    }
+
+    @Bean
+    public KafkaTemplate<String, CustomerJson> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public ReplyingKafkaTemplate<String, CustomerJson, CustomerJson> replyKafkaTemplate(ProducerFactory<String, CustomerJson> pf, KafkaMessageListenerContainer<String, CustomerJson> container) {
+        return new ReplyingKafkaTemplate<>(pf, container);
+
+    }
+
+    @Bean
+    public KafkaMessageListenerContainer<String, CustomerJson> replyContainer(ConsumerFactory<String, CustomerJson> cf) {
+        ContainerProperties containerProperties = new ContainerProperties(requestReplyTopic);
+        return new KafkaMessageListenerContainer<>(cf, containerProperties);
+    }
+
+    @Bean
+    public ConsumerFactory<String, CustomerJson> consumerFactory() {
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new JsonDeserializer<>(CustomerJson.class));
+    }
+
+    @Bean
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, CustomerJson>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, CustomerJson> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        factory.setReplyTemplate(kafkaTemplate());
+        return factory;
+    }*/
 }

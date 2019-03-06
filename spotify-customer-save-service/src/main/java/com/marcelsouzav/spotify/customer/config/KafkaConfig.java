@@ -1,7 +1,7 @@
 package com.marcelsouzav.spotify.customer.config;
 
 
-import com.marcelsouzav.spotify.json.MusicJson;
+import com.marcelsouzav.spotify.json.CustomerJson;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -56,36 +56,36 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ProducerFactory<String, MusicJson> producerFactory() {
+    public ProducerFactory<String, CustomerJson> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, MusicJson> kafkaTemplate() {
+    public KafkaTemplate<String, CustomerJson> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
     @Bean
-    public ReplyingKafkaTemplate<String, MusicJson, MusicJson> replyKafkaTemplate(ProducerFactory<String, MusicJson> pf, KafkaMessageListenerContainer<String, MusicJson> container) {
+    public ReplyingKafkaTemplate<String, CustomerJson, CustomerJson> replyKafkaTemplate(ProducerFactory<String, CustomerJson> pf, KafkaMessageListenerContainer<String, CustomerJson> container) {
         ReplyingKafkaTemplate template = new ReplyingKafkaTemplate<>(pf, container);
         template.setReplyTimeout(60000);
         return template;
     }
 
     @Bean
-    public KafkaMessageListenerContainer<String, MusicJson> replyContainer(ConsumerFactory<String, MusicJson> cf) {
+    public KafkaMessageListenerContainer<String, CustomerJson> replyContainer(ConsumerFactory<String, CustomerJson> cf) {
         ContainerProperties containerProperties = new ContainerProperties(requestReplyTopic);
         return new KafkaMessageListenerContainer<>(cf, containerProperties);
     }
 
     @Bean
-    public ConsumerFactory<String, MusicJson> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new JsonDeserializer<>(MusicJson.class));
+    public ConsumerFactory<String, CustomerJson> consumerFactory() {
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new JsonDeserializer<>(CustomerJson.class));
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, MusicJson>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, MusicJson> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, CustomerJson>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, CustomerJson> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setReplyTemplate(kafkaTemplate());
         return factory;

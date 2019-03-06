@@ -1,6 +1,6 @@
 package com.marcelsouzav.spotify.music.save.service;
 
-import com.marcelsouzav.spotify.music.save.domain.Music;
+import com.marcelsouzav.spotify.customer.domain.Music;
 import com.marcelsouzav.spotify.music.save.gateway.repository.MusicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

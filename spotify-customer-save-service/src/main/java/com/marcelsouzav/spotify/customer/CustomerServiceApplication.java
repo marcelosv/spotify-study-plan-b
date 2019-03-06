@@ -1,6 +1,6 @@
-package com.marcelsouzav.spotify.music.save;
+package com.marcelsouzav.spotify.customer;
 
-import com.marcelsouzav.spotify.customer.domain.Music;
+import com.marcelsouzav.spotify.customer.domain.Customer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -8,12 +8,12 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EntityScan(basePackageClasses = Music.class)
+@EntityScan(basePackageClasses = Customer.class)
 @EnableAsync
 @EnableKafka
-public class MusicServiceApplication {
+public class CustomerServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MusicServiceApplication.class, args);
+        SpringApplication.run(CustomerServiceApplication.class, args);
     }
 }

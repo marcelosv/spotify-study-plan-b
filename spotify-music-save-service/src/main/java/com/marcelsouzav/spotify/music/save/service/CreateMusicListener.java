@@ -1,7 +1,7 @@
 package com.marcelsouzav.spotify.music.save.service;
 
+import com.marcelsouzav.spotify.customer.domain.Music;
 import com.marcelsouzav.spotify.json.MusicJson;
-import com.marcelsouzav.spotify.music.save.domain.Music;
 import com.marcelsouzav.spotify.music.save.enums.MusicStatusEnums;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;

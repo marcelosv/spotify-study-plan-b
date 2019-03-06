@@ -16,7 +16,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Music {
+public class Customer {
 
     @PrimaryKey
     private UUID id;
@@ -25,13 +25,11 @@ public class Music {
     @NotEmpty
     private String name;
 
-    private String path;
+    @NotNull
+    @NotEmpty
+    private String country;
 
     @NotNull
     @NotEmpty
-    private String status;
-
-    @NotNull
-    @NotEmpty
-    private String uuidCustomer;
+    private String musicStyle;
 }

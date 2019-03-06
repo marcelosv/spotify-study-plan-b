@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotify.customer.config;
+package com.marcelsouzav.spotify.music.upload.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
