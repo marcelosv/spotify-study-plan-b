@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class MusicUploadApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MusicUploadApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MusicUploadApiApplication.class, args);
+    }
 }
