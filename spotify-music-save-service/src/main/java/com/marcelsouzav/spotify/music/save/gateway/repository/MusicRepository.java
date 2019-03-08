@@ -1,6 +1,6 @@
 package com.marcelsouzav.spotify.music.save.gateway.repository;
 
-import com.marcelsouzav.spotify.customer.domain.Music;
+import com.marcelsouzav.spotify.music.save.domain.Music;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

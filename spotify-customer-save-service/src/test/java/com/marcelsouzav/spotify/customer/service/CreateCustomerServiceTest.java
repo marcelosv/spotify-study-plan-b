@@ -1,6 +1,6 @@
 package com.marcelsouzav.spotify.customer.service;
 
-import com.marcelsouzav.spotify.customer.CustomerRepository;
+import com.marcelsouzav.spotify.customer.gateway.repository.CustomerRepository;
 import com.marcelsouzav.spotify.customer.domain.Customer;
 import org.junit.Test;
 import org.junit.runner.RunWith;

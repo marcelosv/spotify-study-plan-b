@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotify.customer.config;
+package com.marcelsouzav.spotify.music.save.config;
 
 
 import com.marcelsouzav.spotify.json.MusicJson;
@@ -44,6 +44,7 @@ public class KafkaConfig {
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
                 StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, consumerGroup);
         return props;
     }
 

@@ -16,7 +16,7 @@ public class MusicController {
     @Autowired
     private UploadMusicService uploadMusicService;
 
-    @PostMapping("/customer/{uuid}/music/{uuidMusic}")
+    @PostMapping("/customers/{uuid}/musics/{uuidMusic}")
     public ResponseEntity<?> create(@PathVariable("uuid") String uuid,
                                     @PathVariable("uuidMusic") String uuidMusic,
                                     @RequestParam("file") MultipartFile file) throws IOException {

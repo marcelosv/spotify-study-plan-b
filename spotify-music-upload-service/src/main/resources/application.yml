@@ -1,5 +1,6 @@
 kafka:
   bootstrap-servers: 127.0.0.1:9092
+  topic.music-status: topic_music_status2
   topic.request-topic: requesttopicmusic_upload
   topic.requestreply-topic: replytopicmusic_upload
   consumergroup: requestreplymusicgorup_upload

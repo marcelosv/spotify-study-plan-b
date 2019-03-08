@@ -1,0 +1,23 @@
+# Criar customer
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"Customer 1","country":"BR", "musicStyle":"Samba"}' \
+  http://localhost:8080/v1/
+
+  e7f5f9c4-26f7-4d61-83bb-a60b56ab3cce
+
+# Criar musica
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"Music 1"}' \
+  http://localhost:8082/v1/customers/e7f5f9c4-26f7-4d61-83bb-a60b56ab3cce/musics
+
+eb2f50e9-aed3-4654-974e-efbd1d70537b
+
+# Upload musica
+
+curl --request POST \
+    --header "Content-Type:multipart/form-data" \
+    --form "file=@/home/marcelo/Music/ALMA DO RIO GRANDE - CANDIEIRO(1).mp3" \
+    'http://localhost:8084/v1/customers/e7f5f9c4-26f7-4d61-83bb-a60b56ab3cce/musics/eb2f50e9-aed3-4654-974e-efbd1d70537b'
+

@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotify.customer;
+package com.marcelsouzav.spotify.customer.gateway.repository;
 
 import com.marcelsouzav.spotify.customer.domain.Customer;
 import org.springframework.data.repository.CrudRepository;

@@ -1,6 +1,6 @@
 package com.marcelsouzav.spotify.music.save;
 
-import com.marcelsouzav.spotify.customer.domain.Music;
+import com.marcelsouzav.spotify.music.save.domain.Music;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
