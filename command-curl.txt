@@ -15,7 +15,6 @@ curl --header "Content-Type: application/json" \
 eb2f50e9-aed3-4654-974e-efbd1d70537b
 
 # Upload musica
-
 curl --request POST \
     --header "Content-Type:multipart/form-data" \
     --form "file=@/home/marcelo/Music/ALMA DO RIO GRANDE - CANDIEIRO(1).mp3" \
