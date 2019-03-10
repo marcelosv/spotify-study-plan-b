@@ -12,11 +12,16 @@ curl --header "Content-Type: application/json" \
   --data '{"name":"Music 1"}' \
   http://localhost:8082/v1/customers/e7f5f9c4-26f7-4d61-83bb-a60b56ab3cce/musics
 
-eb2f50e9-aed3-4654-974e-efbd1d70537b
+9c0a7cc6-1859-420e-83f6-672480204006
 
 # Upload musica
 curl --request POST \
     --header "Content-Type:multipart/form-data" \
     --form "file=@/home/marcelo/Music/ALMA DO RIO GRANDE - CANDIEIRO(1).mp3" \
-    'http://localhost:8084/v1/customers/e7f5f9c4-26f7-4d61-83bb-a60b56ab3cce/musics/eb2f50e9-aed3-4654-974e-efbd1d70537b'
+    'http://localhost:8084/v1/customers/e7f5f9c4-26f7-4d61-83bb-a60b56ab3cce/musics/9c0a7cc6-1859-420e-83f6-672480204006'
 
+
+# Escutar musica
+curl --header "Content-Type: application/json" \
+  --request POST \
+  http://localhost:8087/v1/musics/9c0a7cc6-1859-420e-83f6-672480204006

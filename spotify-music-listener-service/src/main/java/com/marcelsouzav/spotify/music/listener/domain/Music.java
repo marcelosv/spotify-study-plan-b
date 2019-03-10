@@ -1,4 +1,4 @@
-package com.marcelsouzav.spotify.music.save.domain;
+package com.marcelsouzav.spotify.music.listener.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

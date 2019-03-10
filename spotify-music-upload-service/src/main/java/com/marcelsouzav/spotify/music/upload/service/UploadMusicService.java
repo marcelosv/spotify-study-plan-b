@@ -1,5 +1,6 @@
 package com.marcelsouzav.spotify.music.upload.service;
 
+import com.marcelsouzav.spotify.json.MusicJson;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.utils.Bytes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +45,9 @@ public class UploadMusicService {
 
         Bytes aByte = (Bytes) record.value();
 
-        String nameFile = uploadS3Service.execute(uuidCustomerStr, uuidMusicStr, aByte);
+        MusicJson music = uploadS3Service.execute(uuidCustomerStr, uuidMusicStr, aByte);
 
-        saveMusicStatusService.execute(uuidMusicStr, nameFile);
+        saveMusicStatusService.execute(music);
     }
 
 

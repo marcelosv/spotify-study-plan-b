@@ -29,6 +29,7 @@ public class UpdateMusicStatusService {
 
         music.get().setStatus(MusicStatusEnums.READY.toString());
         music.get().setPath(musicUpdateStatusJson.getPath());
+        music.get().setSize(musicUpdateStatusJson.getSize());
 
         musicRepository.save(music.get());
     }

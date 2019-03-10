@@ -17,16 +17,6 @@ import javax.validation.constraints.NotNull;
 public class MusicJson {
 
     private String uuid;
-
-    @NotNull
-    @NotEmpty
-    private String name;
-
-    @NotNull
-    @NotEmpty
-    private String uuidCustomer;
-
     private String path;
-
     private long size;
 }

@@ -18,18 +18,9 @@ public class SaveMusicStatusService {
     @Value("${kafka.topic.music-status}")
     private String topicMusicStatus;
 
-    public void execute(String uuid, String path) {
-
-        MusicJson musicUpdateStatusJson = MusicJson
-                .builder()
-                .uuid(uuid)
-                .path(path)
-                .build();
-
-        ProducerRecord<MusicJson, MusicJson> producerRecord = new ProducerRecord(topicMusicStatus, musicUpdateStatusJson, musicUpdateStatusJson);
+    public void execute(MusicJson music) {
+        ProducerRecord<MusicJson, MusicJson> producerRecord = new ProducerRecord(topicMusicStatus, music, music);
         template.send(producerRecord);
-
-        //template.send(topicMusicStatus, "status-music", musicUpdateStatusJson);
     }
 
 }
